@@ -17,7 +17,6 @@
             height: 100vh;
             overflow: hidden;
             font-family: Arial, sans-serif;
-            background-color: black; /* Hintergrund schwarz */
         }
 
         /* Navigation Bar */
@@ -117,13 +116,12 @@
             flex: 1;
             width: 100%;
             height: 100%;
-            padding-top: 70px;
         }
 
         /* Box Styling */
         .box {
             flex: 1;
-            transition: flex 0.5s ease;
+            /* Kein flex-grow oder shrink beim Hover */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -138,8 +136,8 @@
         .box img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            transition: transform 0.5s ease, filter 0.5s ease;
+            object-fit: contain; /* Hier geändert: komplett sichtbar */
+            transition: transform 0.5s ease;
         }
 
         .box-1 {
@@ -150,14 +148,13 @@
             background: transparent;
         }
 
-        .box-1 img {
-            filter: brightness(0.8);
-        }
-
+        .box-1 img,
         .box-2 img {
             filter: brightness(0.8);
         }
 
+        /* Entferne Hover-Vergrößerung, da sonst Bild eventuell größer skaliert und evtl. abgeschnitten wird */
+        /*
         .box:hover {
             flex: 1.1;
         }
@@ -170,7 +167,9 @@
             transform: scale(1.05);
             filter: brightness(1);
         }
+        */
 
+        /* Styling for text inside boxes */
         .box-1 .text,
         .box-2 .text {
             position: absolute;
@@ -184,6 +183,7 @@
             text-align: center;
         }
 
+        /* Text button styling */
         .box .text {
             display: inline-block;
             background-color: rgba(0, 0, 0, 0.6);
@@ -212,6 +212,7 @@
                     <a href="#home-3">Sub Home 3</a>
                 </div>
             </div>
+
             <div class="dropdown-container">
                 <button>Mieter</button>
                 <div class="dropdown">
@@ -220,6 +221,7 @@
                     <a href="#about-3">Sub About 3</a>
                 </div>
             </div>
+
             <div class="dropdown-container">
                 <button>Vermieter</button>
                 <div class="dropdown">
@@ -228,6 +230,7 @@
                     <a href="#contact-3">Sub Contact 3</a>
                 </div>
             </div>
+
             <div class="dropdown-container">
                 <button>Hilfe</button>
                 <div class="dropdown">

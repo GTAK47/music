@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hover Effekt mit sichtbaren Bildern</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background-color: black;
+  }
+
+  /* Navigation Bar */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(30, 30, 30, 0.95);
+    color: white;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 2px solid #555;
+  }
+
+  nav:hover {
+    background-color: rgba(50, 50, 50, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+    border-bottom-color: #fff;
+  }
+
+  nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  nav .menu {
+    display: flex;
+    gap: 25px;
+    position: relative;
+  }
+
+  nav .menu .dropdown-container {
+    position: relative;
+  }
+
+  /* Button Styling */
+  nav .menu button {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 14px 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+  }
+
+  nav .menu button:hover,
+  nav .menu button:focus {
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+    outline: none;
+  }
+
+  /* Dropdown Menu */
+  nav .menu .dropdown {
+    position: absolute;
+    top: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 10px 0;
+    min-width: 140px;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  nav .menu .dropdown a {
+    display: block;
+    padding: 10px 20px;
+    color: black;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+  }
+
+  nav .menu .dropdown a:hover,
+  nav .menu .dropdown a:focus {
+    background-color: #f0f0f0;
+    outline: none;
+  }
+
+  nav .menu .dropdown-container:hover .dropdown,
+  nav .menu .dropdown-container:focus-within .dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* Container */
+  .container {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    margin-top: 70px;
+    gap: 0; /* Kein Abstand zwischen Boxen */
+  }
+
+  /* Box Styling */
+  .box {
+    flex: 1;
+    transition: flex 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: visible; /* Damit nichts abgeschnitten wird */
+    position: relative;
+  }
+
+  .box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Bild komplett sichtbar */
+    transition: transform 0.5s ease;
+    pointer-events: none;
+  }
+
+  .box-1,
+  .box-2 {
+    background: transparent;
+  }
+
+  .box-1 img,
+  .box-2 img {
+    filter: brightness(0.8);
+  }
+
+  .box:hover {
+    flex: 1.1;
+  }
+
+  .box:not(:hover) {
+    flex: 0.9;
+  }
+
+  .box:hover img {
+    transform: scale(1.05);
+    filter: brightness(1);
+  }
+
+  /* Text Styling */
+  .box-1 .text,
+  .box-2 .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    pointer-events: auto;
+  }
+
+  .box .text {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    user-select: none;
+  }
+
+  .box .text:hover,
+  .box .text:focus {
+    background-color: rgba(0, 0, 0, 0.75);
+    outline: none;
+  }
+</style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">Bedak Boys</div>
+    <div class="menu">
+      <div class="dropdown-container" tabindex="0">
+        <button aria-haspopup="true" aria-expanded="false">Kontakt</button>
+        <div class="dropdown" role="menu" aria-label="Kontakt submenu">
+          <a href="#home-1" role="menuitem" tabindex="-1">Sub Home 1</a>
+          <a href="#home-2" role="menuitem" tabindex="-1">Sub Home 2</a>
+          <a href="#home-3" role="menuitem" tabindex="-1">Sub Home 3</a>
+        </div>
+      </div>
+      <div class="dropdown-container" tabindex="0">
+        <button aria-haspopup="true" aria-expanded="false">Mieter</button>
+        <div class="dropdown" role="menu" aria-label="Mieter submenu">
+          <a href="#about-1" role="menuitem" tabindex="-1">Sub About 1</a>
+          <a href="#about-2" role="menuitem" tabindex="-1">Sub About 2</a>
+          <a href="#about-3" role="menuitem" tabindex="-1">Sub About 3</a>
+        </div>
+      </div>
+      <div class="dropdown-container" tabindex="0">
+        <button aria-haspopup="true" aria-expanded="false">Vermieter</button>
+        <div class="dropdown" role="menu" aria-label="Vermieter submenu">
+          <a href="#contact-1" role="menuitem" tabindex="-1">Sub Contact 1</a>
+          <a href="#contact-2" role="menuitem" tabindex="-1">Sub Contact 2</a>
+          <a href="#contact-3" role="menuitem" tabindex="-1">Sub Contact 3</a>
+        </div>
+      </div>
+      <div class="dropdown-container" tabindex="0">
+        <button aria-haspopup="true" aria-expanded="false">Hilfe</button>
+        <div class="dropdown" role="menu" aria-label="Hilfe submenu">
+          <a href="#contact-1" role="menuitem" tabindex="-1">Sub Contact 1</a>
+          <a href="#contact-2" role="menuitem" tabindex="-1">Sub Contact 2</a>
+          <a href="#contact-3" role="menuitem" tabindex="-1">Sub Contact 3</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Image Container -->
+  <div class="container">
+    <div class="box box-1">
+      <img src="dan.png" alt="Box 1" />
+      <a href="https://open.spotify.com/intl-de/artist/7LpoymmHlcCzoHLo44J99m" class="text">DANCO</a>
+    </div>
+    <div class="box box-2">
+      <img src="kev.png" alt="Box 2" />
+      <a href="page2.html" class="text">NEMA</a>
+    </div>
+  </div>
+</body>
+</html>

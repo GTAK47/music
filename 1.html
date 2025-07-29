@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sänger Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #111;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      height: 100vh;
+      background: url('saenger-background.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      animation: fadeIn 2s ease-in;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    .socials {
+      margin-top: 30px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .socials a {
+      color: #fff;
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .socials a:hover {
+      transform: scale(1.2);
+    }
+
+    .gallery {
+      display: flex;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      padding: 50px 0;
+    }
+
+    .gallery img {
+      height: 300px;
+      flex: none;
+      margin: 0 20px;
+      border-radius: 10px;
+      scroll-snap-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .music-section {
+      padding: 50px 20px;
+      background-color: #222;
+      text-align: center;
+    }
+
+    .music-section h2 {
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .spotify-embed iframe {
+      width: 100%;
+      max-width: 400px;
+      height: 80px;
+      border: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .gallery img {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Max Sound</h1>
+    <p>Official page of singer Max Sound – new music, events and visuals all in one place.</p>
+    <div class="socials">
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+      <a href="https://spotify.com" target="_blank">Spotify</a>
+      <a href="https://youtube.com" target="_blank">YouTube</a>
+    </div>
+  </header>
+
+  <section class="gallery">
+    <img src="Danco/dan.png" alt="Live 1">
+    <img src="Danco/kev.png" alt="Live 2">
+    <img src="img3.jpg" alt="Live 3">
+    <img src="img4.jpg" alt="Live 4">
+  </section>
+
+  <section class="music-section">
+    <h2>Listen Now</h2>
+    <div class="spotify-embed">
+      <iframe src="https://open.spotify.com/embed/track/1U6V8tVhsVCEL0YQHnA5aY?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </section>
+</body>
+</html>

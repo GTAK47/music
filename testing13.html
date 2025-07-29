@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Persistent Dropdown Navigation</title>
     <style>
         * {
@@ -17,7 +17,6 @@
             height: 100vh;
             overflow: hidden;
             font-family: Arial, sans-serif;
-            background-color: black; /* Hintergrund schwarz */
         }
 
         /* Navigation Bar */
@@ -41,7 +40,7 @@
 
         nav .menu {
             display: flex;
-            gap: 25px;
+            gap: 25px; /* Erhöhter Abstand zwischen den Buttons */
             position: relative;
         }
 
@@ -54,13 +53,13 @@
             background-color: transparent;
             color: white;
             border: 2px solid white;
-            padding: 14px 18px;
+            padding: 14px 18px; /* Größere Polsterung */
             border-radius: 50%;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.9rem; /* Kleinere Schriftgröße */
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
-            width: 65px;
-            height: 65px;
+            width: 65px; /* Fixe Breite */
+            height: 65px; /* Fixe Höhe */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -69,7 +68,7 @@
         nav .menu button:hover {
             background-color: white;
             color: black;
-            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5); /* Verstärkter Glüheffekt */
         }
 
         /* Dropdown Menu */
@@ -103,6 +102,7 @@
             background-color: #f0f0f0;
         }
 
+        /* Keep dropdown visible when hovering the button or the dropdown itself */
         nav .menu .dropdown-container:hover .dropdown,
         nav .menu .dropdown-container:hover button {
             display: block;
@@ -117,7 +117,6 @@
             flex: 1;
             width: 100%;
             height: 100%;
-            padding-top: 70px;
         }
 
         /* Box Styling */
@@ -138,8 +137,8 @@
         .box img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            transition: transform 0.5s ease, filter 0.5s ease;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
         .box-1 {
@@ -171,7 +170,20 @@
             filter: brightness(1);
         }
 
-        .box-1 .text,
+        /* Styling for text inside the left image */
+        .box-1 .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+
+        /* Styling for text inside the right image */
         .box-2 .text {
             position: absolute;
             top: 50%;
@@ -184,6 +196,7 @@
             text-align: center;
         }
 
+        /* Make the text look like a button */
         .box .text {
             display: inline-block;
             background-color: rgba(0, 0, 0, 0.6);
@@ -194,6 +207,7 @@
             transition: background-color 0.3s ease;
         }
 
+        /* Subtle hover effect for the text buttons */
         .box .text:hover {
             background-color: rgba(0, 0, 0, 0.75);
         }
@@ -204,6 +218,7 @@
     <nav>
         <div class="logo">Gemeindebau Abi GmbH</div>
         <div class="menu">
+            <!-- Kontakt Button with Dropdown -->
             <div class="dropdown-container">
                 <button>Kontakt</button>
                 <div class="dropdown">
@@ -212,6 +227,8 @@
                     <a href="#home-3">Sub Home 3</a>
                 </div>
             </div>
+
+            <!-- Mieter Button with Dropdown -->
             <div class="dropdown-container">
                 <button>Mieter</button>
                 <div class="dropdown">
@@ -220,6 +237,8 @@
                     <a href="#about-3">Sub About 3</a>
                 </div>
             </div>
+
+            <!-- Vermieter Button with Dropdown -->
             <div class="dropdown-container">
                 <button>Vermieter</button>
                 <div class="dropdown">
@@ -228,6 +247,8 @@
                     <a href="#contact-3">Sub Contact 3</a>
                 </div>
             </div>
+
+            <!-- Hilfe Button with Dropdown -->
             <div class="dropdown-container">
                 <button>Hilfe</button>
                 <div class="dropdown">
@@ -242,11 +263,11 @@
     <!-- Image Container -->
     <div class="container">
         <div class="box box-1">
-            <img src="dan.png" alt="Box 1" />
+            <img src="dan.png" alt="Box 1">
             <a href="altbau/altbau.html" class="text">DANCO</a>
         </div>
         <div class="box box-2">
-            <img src="kev.png" alt="Box 2" />
+            <img src="kev.png" alt="Box 2">
             <a href="page2.html" class="text">NEMA</a>
         </div>
     </div>
