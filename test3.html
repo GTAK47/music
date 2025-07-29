@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dein Name – Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome für Icons -->
+  <script src="https://kit.fontawesome.com/a2d9a20467.js" crossorigin="anonymous"></script>
+
+  <!-- AOS für Scroll-Animationen -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      font-family: 'Inter', sans-serif;
+      background: #fdfdfd;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+    }
+
+    nav a:hover {
+      color: white;
+      background-color: #007aff;
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0, 122, 255, 0.2);
+    }
+
+    nav a:active {
+      transform: scale(0.95);
+      background-color: #005fe1;
+    }
+
+    .hero {
+      padding: 10rem 2rem 6rem;
+      text-align: center;
+      background: linear-gradient(to bottom right, #ffffff, #e3f2fd);
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: #555;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .skills {
+      margin-top: 3rem;
+    }
+
+    .skill-bar {
+      margin: 1rem 0;
+    }
+
+    .skill-bar span {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .bar {
+      background: #eee;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      background: #007aff;
+      height: 12px;
+      width: 0;
+      animation: fillBar 2s forwards;
+    }
+
+    @keyframes fillBar {
+      to {
+        width: var(--width);
+      }
+    }
+
+    .contact-form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      background: #007aff;
+      color: white;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background: #005fe1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    @media(max-width: 768px) {
+      .about {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div><strong>DeinName</strong></div>
+      <div>
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Kontakt</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>Hi, ich bin Dein Name</h1>
+    <p>Webentwickler • Kreativer Kopf • Problemlöser</p>
+  </section>
+
+  <section class="about" id="about" data-aos="fade-up">
+    <div class="about-text">
+      <h2>Über mich</h2>
+      <p>Ich bin ein leidenschaftlicher Entwickler mit Fokus auf moderne, benutzerfreundliche Webtechnologien. Diese Seite ist mein digitales Zuhause – hier findest du alles über mich, meine Projekte und wie du mich kontaktieren kannst.</p>
+    </div>
+    <img src="https://via.placeholder.com/500x300" alt="Bild von dir oder Symbolbild">
+  </section>
+
+  <section id="skills" data-aos="fade-up">
+    <h2 style="text-align:center; margin-bottom:2rem;">Skills</h2>
+    <div class="skills">
+      <div class="skill-bar">
+        <span>HTML & CSS</span>
+        <div class="bar"><div class="bar-fill" style="--width: 95%;"></div></div>
+      </div>
+      <div class="skill-bar">
+        <span>JavaScript</span>
+        <div class="bar"><div class="bar-fill" style="--width: 90%;"></div></div>
+      </div>
+      <div class="skill-bar">
+        <span>React</span>
+        <div class="bar"><div class="bar-fill" style="--width: 85%;"></div></div>
+      </div>
+      <div class="skill-bar">
+        <span>UI/UX Design</span>
+        <div class="bar"><div class="bar-fill" style="--width: 80%;"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" data-aos="fade-up">
+    <h2 style="text-align:center; margin-bottom:2rem;">Kontakt</h2>
+    <form class="contact-form" action="https://formspree.io/f/your-id" method="POST">
+      <input type="text" name="name" placeholder="Dein Name" required>
+      <input type="email" name="email" placeholder="Deine E-Mail" required>
+      <textarea name="message" rows="5" placeholder="Deine Nachricht" required></textarea>
+      <button type="submit">Absenden</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Dein Name. Alle Rechte vorbehalten.
+  </footer>
+
+  <!-- AOS Animation Script -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+</body>
+
+</html>
